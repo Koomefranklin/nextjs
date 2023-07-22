@@ -1,34 +1,10 @@
-import React, {useState} from "react";
-import "./Table.css"
+import React from "react";
+
 import { BsFillTrashFill, BsFillPencilFill } from "react-icons/bs";
 
-const Table = ({/* rows,*/ deleteRow, editRow }) => {
-    const [rows, setRows] = useState([
-        {
-            fname: "Fabian",
-            lname: "Matata",
-            username: "fmatata",
-            pfno: "KISE/T105",
-            department: "ICT",
-        },
-        {
-            fname: "Edwin",
-            lname: "Sabaya",
-            username: "esabaya",
-            pfno: "KISE/100",
-            department: "Research",
-        },
-        {
-            fname: "Franklin",
-            lname: "Koome",
-            username: "fkoome",
-            pfno: "KISE/340",
-            department: "HR",
-        },
-    ]);
-    if (!rows || !Array.isArray(rows)) {
-        return <div>No data to display.</div>;
-    }
+import "./Table.css";
+
+export const Table = ({ rows, deleteRow, editRow }) => {
     return (
         <div className="table-wrapper">
             <table className="table">
@@ -43,7 +19,6 @@ const Table = ({/* rows,*/ deleteRow, editRow }) => {
                 </tr>
                 </thead>
                 <tbody>
-
                 {rows.map((row, idx) => {
 
                     return (
@@ -74,4 +49,3 @@ const Table = ({/* rows,*/ deleteRow, editRow }) => {
         </div>
     );
 };
-export default Table;

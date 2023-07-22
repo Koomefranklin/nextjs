@@ -3,8 +3,8 @@
 import { useState } from "react";
 
 import "./App.css";
-import Table from "./Table";
-import {Modal} from "./Modal";
+import { Table } from "./Table";
+import { Modal } from "./Modal";
 
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -45,33 +45,33 @@ function App() {
 
   const handleSubmit = (newRow) => {
     rowToEdit === null
-      ? setRows([...rows, newRow])
-      : setRows(
-          rows.map((currRow, idx) => {
-            if (idx !== rowToEdit) return currRow;
+        ? setRows([...rows, newRow])
+        : setRows(
+            rows.map((currRow, idx) => {
+              if (idx !== rowToEdit) return currRow;
 
-            return newRow;
-          })
+              return newRow;
+            })
         );
   };
 
   return (
-    <div className="App">
-      <Table rows={rows} deleteRow={handleDeleteRow} editRow={handleEditRow} />
-      <button onClick={() => setModalOpen(true)} className="btn">
-        Add
-      </button>
-      {modalOpen && (
-        <Modal
-          closeModal={() => {
-            setModalOpen(false);
-            setRowToEdit(null);
-          }}
-          onSubmit={handleSubmit}
-          defaultValue={rowToEdit !== null && rows[rowToEdit]}
-        />
-      )}
-    </div>
+      <div className="App">
+        <Table rows={rows} deleteRow={handleDeleteRow} editRow={handleEditRow} />
+        <button onClick={() => setModalOpen(true)} className="btn">
+          Add
+        </button>
+        {modalOpen && (
+            <Modal
+                closeModal={() => {
+                  setModalOpen(false);
+                  setRowToEdit(null);
+                }}
+                onSubmit={handleSubmit}
+                defaultValue={rowToEdit !== null && rows[rowToEdit]}
+            />
+        )}
+      </div>
   );
 }
 
